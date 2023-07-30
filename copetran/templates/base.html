@@ -1,0 +1,27 @@
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Copetran{% endblock %}</title>
+    {% tailwind_css %}
+    <link rel="icon" href="{% static 'images/COPETRAN.png' %}" type="image/x-icon">
+</head>
+<body>
+    <!-- Contenido del navbar -->
+    {% block nav %}
+        {% include 'components/navbar/nav.html' %}
+    {% endblock nav %}
+
+    <!-- Contenido del cuerpo de la página -->
+    {% block content %}
+    
+    {% endblock content %}
+
+    
+    {% block footer %}
+        {% include 'components/sidebar/footer.html' %}
+    {% endblock %}
+
+</body>
+</html>

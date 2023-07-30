@@ -1,0 +1,24 @@
+<!-- EJEMPLO DE BASE.HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Título de la página{% endblock %}</title>
+    <!-- <link href="{% static 'css/styles.css' %}" rel="stylesheet"> -->
+</head>
+<body>
+    <!-- Contenido del cuerpo de la página -->
+    {% block content %}{% endblock %}
+</body>
+</html>
+
+
+<!-- EJEMPLO DE PAGINA EXTENDIDA -->
+{% extends 'base.html' %}
+
+{% block title %}Título personalizado de la página{% endblock %}
+
+{% block content %}
+    <!-- Contenido específico de la vista -->
+    <h1>Hola, este es mi contenido personalizado!</h1>
+    <!-- Otros elementos HTML de la vista -->
+{% endblock %}

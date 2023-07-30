@@ -10,6 +10,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -25,9 +26,12 @@ INSTALLED_APPS = [
     #externo de tailwind 
     'tailwind', #python manage.py tailwind init
     'theme',#python manage.py tailwind install *(recordar lo del modo oscuro en theme)
+    ##apps
+    'users',
 ]
 TAILWIND_APP_NAME = "theme"
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+AUTH_USER_MODEL = 'users.CustomUser'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

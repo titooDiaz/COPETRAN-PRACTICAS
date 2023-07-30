@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 
@@ -17,16 +18,17 @@
         <div></div>
         <div id="contenedor" class="bg-white border-solid border-2 rounded-md border-slate-300 p-7 shadow-2xl">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto h-10 w-auto" src="../images/logo.png" alt="CopetranLog">
+            <img class="mx-auto h-10 w-auto" src="{% static 'images/logo.png' %}" alt="CopetranLog">
             <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">REGISTRATE</h2>
             </div>
       
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form class="space-y-6" action="datos.php" method="POST" id="form"  enctype="multipart/form-data">
+                    {% csrf_token %}
                     <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900" >Correo electronico</label>
                         <div class="mt-2">
-                            <input onkeyup="mayusEmail(this)" autocomplete="off" id="email" type="email" name="email" autocomplete="email" placeholder="correo electrónico" required title="Entre un email válido" class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                            {{ form.email }}
                             <span id="ErrorEmail"></span>
                         </div>
                         <div class="flex items-center justify-between">
@@ -36,7 +38,7 @@
                             </div>
                         </div>
                         <div class="mt-0">
-                            <input  id="nombre" type="text" autocomplete="off" onkeyup="mayus(this)" onkeypress="return nonum(event);" title="Ingresa tu nombre" name="nombre" placeholder="nombre" required class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                            {{ form.nombre }}
                             <span id="ErrorNombre"></span>
                         </div>
                         <div class="flex items-center justify-between">
@@ -46,7 +48,7 @@
                             </div>
                         </div>
                         <div class="mt-0">
-                            <input  id="apellido" onkeyup="mayus(this)" autocomplete="off" onkeypress="return nonum(event);" type="text" title="Ingresa tu apellido" name="apellido" placeholder="apellido" required class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                            {{ form.apellido }}
                             <span id="ErrorApellido"></span>
                         </div>
                         <div class="flex items-center justify-between">
@@ -56,7 +58,7 @@
                             </div>
                         </div>
                         <div class="mt-0">
-                            <input id="password1" name="password" type="password" autocomplete="off" placeholder="contraseña" autocomplete="current-password" required class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                            {{ form.password1 }}
                         </div>
                         <div class="flex items-center justify-between">
                             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Confirmar contraseña</label>
@@ -65,7 +67,7 @@
                             </div>
                         </div>
                         <div class="mt-0">
-                            <input id="password2" name="password1" type="password" autocomplete="off" placeholder="confirmar contraseña" autocomplete="current-password" required class="pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
+                            {{ form.password2 }}
                         </div>
                         <span id="ErrorPass"></span>
                     </div>
@@ -78,7 +80,7 @@
             </div>
             <p class="mt-10 text-center text-sm text-gray-500">
                 Tienes cuenta?
-                <a href="./login.html" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">iniciar sesion</a>
+                <a type="submit" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">iniciar sesion</a>
             </p>
 
             </div>
@@ -86,6 +88,6 @@
         <div></div>
       </div>
 
-      <script src="../static/js/register.js"></script>
+      <script src="{% static 'js/register.js' %}"></script>
 </body>
 </html>

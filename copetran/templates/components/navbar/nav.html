@@ -43,7 +43,10 @@
     </div> 
     {% else %}
     <div class="flex items-center md:order-2">
-      <a href="#" class="rounded p-2 bg-blue-700 text-white border-solid border-blue-400 border-b-4"><b>logueate</b></a>
+      <a href="{% url 'account_signup' %}" class="relative rounded p-2 bg-blue-700 text-white border-solid border-blue-400 border-b-2 overflow-hidden hover:border-b-0">
+        <b>registrate</b>
+      </a>
+      
     </div>
     {% endif %}
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">

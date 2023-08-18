@@ -1,4 +1,5 @@
 const nombre = document.getElementById("nombre"); //input que contiene los nombres del usuario
+const username = document.getElementById("username"); //input que contiene los nombres del usuario
 const email = document.getElementById("email") //input que contiene el email del usuario
 const emailbx = document.getElementById("email")
 const apellido = document.getElementById("apellido") //input que contiene el apellido del usuario
@@ -42,60 +43,9 @@ function VerificarEmail(){
             email.style.boxShadow = "1px 1px 5px red"
             container.style.borderColor = "red" //cambia de color el container
         }else{
-            async function verificarDominioCorreo(email) {
-                return new Promise(function(resolve, reject) {
-                  var xhr = new XMLHttpRequest();
-                  var url = 'verificar_dominio.php';
-                  var params = 'email=' + encodeURIComponent(email);
-              
-                  xhr.open('POST', url, true);
-                  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-              
-                  xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4) {
-                      if (xhr.status === 200) {
-                        var respuesta = xhr.responseText;
-                        if (respuesta === 'true') {
-                          resolve();
-                        } else {
-                          reject(new Error('El email no existe'));
-                        }
-                      } else {
-                        reject(new Error('Error en la solicitud AJAX'));
-                      }
-                    }
-                  };
-              
-                  xhr.send(params);
-                });
-              }
-              
-              async function VerificarEmail() {
-                try {
-                  await verificarDominioCorreo(email.value);
-                  // La verificación del dominio de correo se completó con éxito
-                  emailValidate = '';
-                  ErrorEmail.innerHTML = emailValidate;
-                  emailbx.style.boxShadow = '1px 1px 5px green';
-                  emailbx.classList.add('ring-1');
-                  emailbx.classList.add('ring-green-400');
-                  emailCorrecto=true
-                } catch (error) {
-                  // Hubo un error en la verificación del dominio de correo o el correo no existe
-                  entrar = true;
-                  emailValidate = 'El email no existe <br>';
-                  ErrorEmail.innerHTML = emailValidate;
-                  ErrorEmail.style.color = 'red';
-                  emailbx.style.boxShadow = '1px 1px 5px red';
-                  container.style.borderColor = 'red';
-                  emailCorrecto=false
-                  console.log('correo no válido');
-                }
-              }
-              
-              // Llamada a la función VerificarEmail()
-              VerificarEmail();
-              
+            email.style.boxShadow = "1px 1px 5px green"
+            email.classList.add("ring-1");
+            email.classList.add("ring-green-400");
         }
 }
 
@@ -111,6 +61,21 @@ function VerificarNombre(){
         nombre.style.boxShadow = "1px 1px 5px green"
         nombre.classList.add("ring-1");
         nombre.classList.add("ring-green-400");
+    }
+}
+
+function VerificarUserName(){
+    if(username.value.length < 3 ){ // condicion que valida el username (que no sea tan corto) (si la condicion detecta algo cambia la variable entrar a positivo, o sea bloquea la entrada)
+        warnings += `El username es muy corto <br>`
+        entrar = true
+        container.style.borderColor = "red" //cambia de color el container
+        username.style.boxShadow = "1px 1px 5px red"
+        username.classList.add("ring-1");
+        username.classList.add("ring-red-400");
+    }else{
+        username.style.boxShadow = "1px 1px 5px green"
+        username.classList.add("ring-1");
+        username.classList.add("ring-green-400");
     }
 }
 
@@ -166,6 +131,9 @@ function VerificarPassword(){
 
 email.addEventListener('change', function() {
     VerificarEmail();
+});
+username.addEventListener('change', function() {
+    VerificarUserName();
 });
 nombre.addEventListener('change', function() {
     VerificarNombre();

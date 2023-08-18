@@ -1,7 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
+from django.contrib import admin
 
+#bxdegfpiqbqksich
 urlpatterns = [
-    path('register/', views.register, name='registro'),
-    path('login/', views.login, name='login'),
+    path("admin/", admin.site.urls),
+    path('accounts/', include('allauth.urls')),
+
 ]

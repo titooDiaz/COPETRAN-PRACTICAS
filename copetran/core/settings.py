@@ -1,3 +1,5 @@
+#pip freeze > requirements.txt
+
 from pathlib import Path
 import os
 
@@ -21,14 +23,55 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ###########################
+    #atenticacion de usuarios
+    'django.contrib.sites',
+    #autenticacion de usuarios
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.humanize',
     ###########################
     #externo de tailwind 
     'tailwind', #python manage.py tailwind init
-    'theme',#python manage.py tailwind install *(recordar lo del modo oscuro en theme)
+    'theme',#python manage.py tailwind install
     ##apps
     'users',
 ]
+
+
+#allauths (users)
+ACCOUNT_FORMS = {
+    'signup': 'users.forms.RegistroForm',
+}
+
+AUTHENTICATION_CLASSES = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # Otras clases de autenticación si las tienes
+]
+
+SITE_ID = 1
+#allauths
+#autenticar usuarios #login o logaut funcione
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# ================ MODIFICAR ALLAUTH ==================== #
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_UNIQUE = True
+AUTH_USER_MODEL="users.User"
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 3
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "account_login"
+
+
 TAILWIND_APP_NAME = "theme"
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -103,3 +146,13 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#kbjvigtkpnpxkydi
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'miguelitodiaz169@gmail.com'
+EMAIL_HOST_PASSWORD = 'bxdegfpiqbqksich'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'miguelitodiaz169@gmail.com'

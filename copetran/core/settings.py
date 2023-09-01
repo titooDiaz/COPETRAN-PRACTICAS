@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     ###########################
     #externo de tailwind 
+    #pip install django-tailwind
     'tailwind', #python manage.py tailwind init
     'theme',#python manage.py tailwind install
     ##apps

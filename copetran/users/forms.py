@@ -1,6 +1,7 @@
 from django import forms
 from allauth.account.forms import PasswordField
 from allauth.account.forms import SignupForm, LoginForm
+from .models import CustomUser
 
 class RegistroForm(SignupForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={
@@ -65,3 +66,10 @@ class RegistroForm(SignupForm):
         'required': True,
         'class': 'pl-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6'
     }))
+    def save(self, request):
+        # Llama al método `save` de la clase base (`SignupForm`) con `self`
+        user = super(RegistroForm, self).save(request)
+        user.nombre = self.cleaned_data['nombre']
+        user.apellido = self.cleaned_data['apellido']
+        user.save()
+        return user

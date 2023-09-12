@@ -8,17 +8,26 @@
 
 {% load i18n %}
 
-<body class="bg-gray-50 dark:bg-dark-main ">
-<section class="bg-gray-50 dark:bg-dark-main overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:flex items-center sm:justify-center h-screen">
+<body class="bg-gray-50 bg-dark-main">
+<section class="bg-gray-50 bg-dark-main overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2 sm:flex items-center sm:justify-center h-screen  bg-color">
+
+  <style>
+    /* Estilo para la colorn de fondo */
+  .bg-color {
+      background-color: #5e6eff8f;
+  }
+  
+  </style>
+
     <div class="p-8 md:p-12 lg:px-16 lg:py-24">
       <div
-        class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right dark:text-gray-100"
+        class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right text-gray-100"
       >
-        <p class="text-3xl font-bold dark:text-gray-100">
+        <p class="text-3xl font-bold text-blue-800">
           Gracias por registrarte en nuestra pagina!
         </p>
         <div class="mt-6">
-        <p class="dark:text-gray-100">Para verificar que se crean cuentas reales hemos enviado un correo electrónico para su verificación. Siga el enlace proporcionado para finalizar el proceso de registro. Por favor, contáctenos si no lo recibe en unos minutos.</p>
+        <p class="text-gray-800">Para verificar que se crean cuentas reales hemos enviado un correo electrónico para su verificación. Siga el enlace proporcionado para finalizar el proceso de registro. Por favor, contáctenos si no lo recibe en unos minutos.</p>
         </div>
         </div>
       </div>
@@ -26,7 +35,7 @@
     <div class="mx-auto w-1/2 image-container">
     <img
       alt="Student"
-      src="{% static 'img/email-send.png' %}"
+      src="{% static 'images/email-send.png' %}"
       class="object-cover tremble"
     />
 

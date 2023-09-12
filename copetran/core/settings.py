@@ -35,8 +35,11 @@ INSTALLED_APPS = [
     #pip install django-tailwind
     'tailwind', #python manage.py tailwind init
     'theme',#python manage.py tailwind install
+    'crispy_forms',
+    "crispy_tailwind",
     ##apps
     'users',
+    'personas',
 ]
 
 
@@ -72,7 +75,8 @@ ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT =300
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "account_login"
 
-
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
 TAILWIND_APP_NAME = "theme"
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 AUTH_USER_MODEL = 'users.CustomUser'

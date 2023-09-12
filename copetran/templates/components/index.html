@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 <body>
 {% block content %}
-    <a href="{% url 'account_logout' %}">salir :D</a>
+<div>
+    <form method="POST" action="{% url 'home' %}" class="m-4 p-6 rounded-lg bg-white dark:bg-gray-900">
+        {% csrf_token %}
+        <div class=" text-lg font-semibold text-left text-gray-900 dark:text-white">
+           AGREGAR CLIENTE
+            <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400 pb-4">Aqui se agregan clientes sin crearles una cuenta</p>
+        </div>
+        
+
+        <div>
+            {{ form|crispy }}
+            <script>
+                flatpickr("#datepickerForm", {
+                    dateFormat: "Y-m-d",  // Formato de fecha deseado
+                });
+            </script>
+        </div>
+
+        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Subir</button>
+    </form>
+</div>  
+
 {% endblock content %}  
 </body>

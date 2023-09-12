@@ -1,13 +1,26 @@
 {% load static %}
 {% load tailwind_tags %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}Copetran{% endblock %}</title>
     {% tailwind_css %}
+    <!--Caendario-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
+    <!--Logo-->
     <link rel="icon" href="{% static 'images/COPETRAN.png' %}" type="image/x-icon">
+
+    <!--Icons Box-icon-->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!--Icons I-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body class="bg-gray-100 dark:bg-gray-600">
     <!-- Contenido del navbar -->
     {% block nav %}
         {% include 'components/navbar/nav.html' %}

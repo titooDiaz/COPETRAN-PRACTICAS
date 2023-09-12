@@ -1,4 +1,5 @@
 {% load static %}
+
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
@@ -7,40 +8,83 @@
         <img src="{% static 'images/COPETRAN.png' %}" class="rounded h-8 mr-3" alt="Flowbite Logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">COPETRAN</span>
     </a>
+    
     <div class="flex items-center md:order-2">
-        <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+      <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
           <span class="sr-only">Abrir menu de usuario</span>
           <img class="w-8 h-8 rounded-full" src="{% static 'images/COPETRAN.png' %}" alt="user photo">
-        </button>
-        <!-- Dropdown menu -->
-        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+      </button>
+      <!-- Dropdown menu -->
+      <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
           <div class="px-4 py-3">
-            <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-            <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+              <span class="block text-sm text-gray-900 dark:text-white">{{ request.user.username }}</span>
+              <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ request.user.email }}</span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
-            <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-            </li>
+              <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="{% url 'account_logout' %}?next={% url 'account_signup' %}" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                  <i class='bx bx-exit h-4 mr-2 text-red-500'></i>
+                  <span>Salir</span>
+              </a>
+              </li>
           </ul>
-        </div>
+      </div>
+  </div>
 
-        <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-          <span class="sr-only">Abrir menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-          </svg>
-      </button>
-    </div> 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Obtenemos el botón de la imagen y el menú
+    const userMenuButton = document.getElementById("user-menu-button");
+    const userDropdown = document.getElementById("user-dropdown");
+
+    // Agregamos un controlador de eventos click al botón de la imagen
+    userMenuButton.addEventListener("click", function(event) {
+        // Prevenir que el clic del botón se propague al documento
+        event.stopPropagation();
+
+        // Cambiamos la visibilidad del menú
+        userDropdown.classList.toggle("fixed");
+
+        // Si el menú está visible, mostramos el menú
+        if (!userDropdown.classList.contains("fixed")) {
+            userDropdown.style.display = "none";
+        } else {
+            userDropdown.style.display = "block";
+        }
+    });
+
+    // Agregamos un controlador de eventos click al documento
+    document.addEventListener("click", function(event) {
+        // Verificamos si el clic ocurrió fuera del menú
+        if (userDropdown.classList.contains("fixed") && !userDropdown.contains(event.target)) {
+            // Cerramos el menú
+            userDropdown.classList.remove("fixed");
+            userDropdown.style.display = "none";
+        }
+    });
+});
+  </script>
+
+  <style>
+    #user-dropdown.fixed {
+    position: fixed;
+    top: 30px;
+    right: 10px;
+    display: none;
+    }
+  </style>
+
+
     {% else %}
     <div class="flex items-center md:order-2">
       <a href="{% url 'account_signup' %}" class="relative rounded p-2 bg-blue-700 text-white border-solid border-blue-400 border-b-2 overflow-hidden hover:border-b-0">

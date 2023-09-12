@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .models import CustomUser
 from .forms import RegistroForm
 
-def mi_vista(request):
+def users(request):
     usuarios = CustomUser.objects.all()
     contexto = {
         'url': 1,

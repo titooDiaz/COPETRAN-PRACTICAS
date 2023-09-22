@@ -21,6 +21,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="bg-gray-100 dark:bg-gray-600">
+    {% block mensajes %}
+        {% include 'mensajes.html' %}
+    {% endblock mensajes %}
+
     <!-- Contenido del navbar -->
     {% block nav %}
         {% include 'components/navbar/nav.html' %}
@@ -37,6 +41,5 @@
     {% block footer %}
         {% include 'components/sidebar/footer.html' %}
     {% endblock %}
-
 </body>
 </html>

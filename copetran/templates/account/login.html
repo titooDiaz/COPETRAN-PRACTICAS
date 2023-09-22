@@ -11,15 +11,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>INGRESAR</title>
     <link rel="stylesheet" href="../static/css/login.css">
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
-<body >
-    <div class="flex h-auto flex-col justify-center items-aling-center px-6 py-12 lg:px-8 grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3" >
-        <div></div>
+    {% block mensajes %}
+        {% include 'mensajes.html' %}
+    {% endblock mensajes %}
+
+<div class="flex justify-center items-center h-screen">
+    <div class="flex h-auto flex-col justify-center items-aling-center px-6 py-12 lg:px-8 w-full sm:w-1/2 lg:w-1/3 m-6" >
         <div class="border-solid border-2 rounded-md border-slate-300 p-5 shadow-2xl">
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto h-10 w-auto" src="{% static 'images/logo.png' %}" alt="Your Company">
@@ -42,9 +45,13 @@
                 <a href="{% url 'account_signup' %}" class="botonRegister font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Registrate</a>
             </p>
 
+            <p class=" text-center text-sm text-gray-500">
+                Olvidaste tu contrase;a?
+                <a href="{% url 'account_reset_password' %}" class="botonRegister font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Recuperar</a>
+            </p>
+
             </div>
         </div>
-        <div></div>
       </div>
-</body>
+</div>
 </html>

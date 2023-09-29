@@ -106,6 +106,7 @@ TEMPLATES = [
     },
 ]
 
+HTTP_404_TEMPLATE = '404.html'
 
 DATABASES = {
     'default': {
@@ -137,7 +138,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = True#horariosS
 
 
 STATIC_URL = '/static/'

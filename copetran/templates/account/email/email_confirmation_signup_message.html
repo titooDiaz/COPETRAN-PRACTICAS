@@ -2,18 +2,32 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+<head>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f0f0f0;">
 
-<div style="width: 100vh; height: 100vh; background: #0099;">
-    <div style="width: 385px; background-color: #fff; border-radius: 15px; border: 2px solid black;">
-        <div style="padding: 24px;">
-            <a href="#">
-                <h5 style="margin-bottom: 8px; font-size:xx-large;"> <b>Copetran 2023</b> </h5>
-            </a>
-            <p style="margin-bottom: 8px; color: #000;">Al parecer alguien a querido registrarse en nuestra pagina con tu corre, si fuiste tu por favor ve a esta direccion para verificar tu cuenta.</p>
-            <a href="{{ activate_url }}" style="display: flex; width: 100px; height: 40px; background-color: #0057d0; border-radius: 8px; align-items: center; justify-content: center; color: #fff;">
-               <b>Verificar</b>
-            </a>
+    <div style="width: 590px; margin: 0 auto; background-color: #ffffff; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);">
+        <div style="background: url('https://ci4.googleusercontent.com/proxy/GEQmGtgYD63LzAtSO1JTM9Ce8AcF6Lt7tB9pVk1M7bnGrrPS9Hd0xNvdA9GTenGIplV_Z5NMqadNPeI_WN6HeORXC0U7Xw4Dsx4oxdA6PHinrBM=s0-d-e1-ft#http://www.gstatic.com/android/market_images/email/email_top.png') no-repeat; width: 100%; height: 75px; display: block;">
+            <div style="padding-top: 30px; padding-left: 50px; padding-right: 50px;">
+                <a href="https://www.copetran.com/" style="display: inline-block; border-top: 4px solid transparent; border-bottom: 4px solid transparent;" target="_blank">
+                    <img alt="Google Play" title="Google Play" width="162" src="https://seeklogo.com/images/C/copetran-logo-BB228E95BC-seeklogo.com.png" style="border: none;">
+                </a>
+            </div>
+        </div>
+
+        <div style="background: url('https://ci5.googleusercontent.com/proxy/F7Udt2EhiF-6ICElClHTAChWdxYdB6bIcRMDkuj9pyt44lIroPVTQM5roWjMFd7UFKx0h38BzxLiRopskGcAwlspzoOCwyvY11RO1rsuVVBz4Pc=s0-d-e1-ft#http://www.gstatic.com/android/market_images/email/email_mid.png') repeat-y; width: 100%; display: block;">
+            <div style="padding-left: 50px; padding-right: auto; padding-bottom: 1px;">
+                <div style="border-bottom: 1px solid #ededed;"></div>
+                <div style="margin: 20px 0; font-size: 24px; line-height: 30px; text-align: left; padding: 20px 0;">
+                    <p style="color: #333;">¡Gracias por tu interés en Copetran!</p>
+                    <p style="color: #555;">Al parecer, alguien ha intentado registrarse en nuestra página con tu correo. Si fuiste tú, por favor, ve a esta dirección para verificar tu cuenta.</p>
+                </div>
+                <div style="text-align: left; padding: 20px 0;">
+                    <a href="{{ activate_url }}" style="text-decoration: none; color: #1565c0; font-size: 18px;">Verificar mi cuenta</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
+
+</body>
+</html>

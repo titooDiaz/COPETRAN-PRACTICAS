@@ -22,7 +22,7 @@
             <div>
                 <div class="w-full my-custom-class">
                     <div class="overflow-x-hidden m-4">
-                        <table id="datatable-programmers" class="table-auto p-1 border rounded-lg bg-gray-800" style="width: 100%;">
+                        <table id="datatable-programmers" class="table-auto" style="width: 100%;">
                             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
@@ -54,6 +54,7 @@
         </div>
 
     <style>
+        /* elementos de paginas, adelatar o atrazar */
         .pagination li{
             background-color: aliceblue;
             border-radius: 3px;
@@ -61,13 +62,16 @@
             margin: 6px;
             display: inline-block;
         }
+        /* atrazar */
         #datatable-programmers_previous{
             background-color: rgb(254, 211, 211);
         }
+        /* adelantar */
         #datatable-programmers_next{
             background-color: rgb(211, 245, 255)
         }
 
+        /* BUSQUEDA CONTENEDOR DE  */
         #datatable-programmers_filter label{
             padding: 5px;
             display: inline-block;
@@ -75,20 +79,26 @@
             background-color: aliceblue;
             border-radius: 4px;
         }
+
+        /* CONTENEDOR DE LA BARRA DE BSUQUEDA */
         #datatable-programmers_filter{
             display: inline;
         }
         
-
+        /* BARRA DE BUSQUEDA */
         #datatable-programmers_filter input{
             background-color: rgb(240, 240, 240);
             border-radius: 6px;
             height: 30px;
         }
+
+        /* CONTENEDOR DE BOTONES DE EXEL ETC */
         .dt-buttons{
             display: inline;
             margin: 6px;
         }
+
+        /* excel, pdf, IMPRIMIT */
         .dt-buttons i{
             margin: 6px;
             background-color: aliceblue;
@@ -96,28 +106,52 @@
             border-radius: 4px;
         }
 
+        /* QUE HOJA SE ESTA MOSTRANDO Y DE CUANTAS */
         #datatable-programmers_info{
+            padding: 10px;
+            align-items: center;
+            width: 250px;
             background-color: aliceblue;
-            padding: 8px;
-            border-radius: 10px;
-            display: inline;
-            margin: 8px;
+            border-radius: 4px;
         }
 
+
+        /* DIV DEL SELECT */
         #datatable-programmers_length{
-            display: inline;
             align-items: center;
-            margin: 8px;
-            padding: 8px;
-            background-color: aliceblue;
+            margin-top: 4px;
         }
 
+        /* CONTENEDOR DE SLECT*/
         #datatable-programmers_length label{
+            padding: 5px;
+            display: inline-block;
             align-items: center;
+            background-color: aliceblue;
+            border-radius: 4px;
         }
 
+        /* SELECT DE LA TABLA */
         #datatable-programmers_length select{
-            height: 30px;
+            background-color: rgb(240, 240, 240);
+            border-radius: 6px;
+            height: 40px;
+        }
+
+        /* ETIQUETAS DE LA TABLA */
+        #datatable-programmers td {
+            border: 1px solid #8b8b8b;
+            padding: 8px;
+            text-align: center;
+        }
+
+        /* ETIQUETAS DE LA TABLA */
+        #datatable-programmers th {
+            background-color: #041629;
+            color: #fff;
+            border: 1px solid #949494;
+            padding: 8px;
+            text-align: center;
         }
 
 

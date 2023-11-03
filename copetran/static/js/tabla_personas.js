@@ -80,12 +80,12 @@ const listProgrammers = async () => {
         data.personas.forEach((personas, index) => {
             content += `
                 <tr>
-                    <td class="text-white bg-gray-800 p-2">${personas.email}</td>
-                    <td class="text-white bg-gray-800 p-2">${personas.nombre}</td>
-                    <td class="text-white bg-gray-800 p-2">${personas.apellido}</td>
-                    <td class="text-white bg-gray-800 p-2">${personas.fecha_nacimiento}</td>
-                    <td class="text-white bg-gray-800 p-2">${personas.tipo_documento}</td>
-                    <td class="text-white bg-gray-800 p-2">${personas.documento}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.email}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.nombre}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.apellido}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.fecha_nacimiento}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.tipo_documento}</td>
+                    <td class="text-black dark:text-white bg-gray-50 dark:bg-gray-800 p-2">${personas.documento}</td>
                 </tr>`;
         });
         tableBody_programmers.innerHTML = content;

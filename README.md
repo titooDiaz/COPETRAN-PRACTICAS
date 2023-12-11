@@ -1,6 +1,5 @@
 # COPETRAN-PRACTICAS
 
-- # RECONOCIMIENTO DE CARROS Y MATRICULAS (CO)
 Hello! This is a project for my school practices. The project is built with Django (Python), and I will be uploading constant updates. 
 
 <hr/>

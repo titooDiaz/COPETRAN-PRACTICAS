@@ -44,19 +44,6 @@ Great, now you can start the server:
 ```python
 pip install -r requirements.txt
 ```
-
-
-> [!IMPORTANT]
-> Asegurate de tener todo el hardware necesarios para ejecutar el programa 
-
-> [!TIP]
-> Asegurate de poner tu camara en un lugar con buena iluminacion
-
-<img src="https://i.imgur.com/EnT7oVB.png"  width="300"/>
-
-> [!CAUTION]
-> Asegurate de tener todos los requerimientos instalados antes de ejecutar el programa
-
 <hr/>
 
 <br/>

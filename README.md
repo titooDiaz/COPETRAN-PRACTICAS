@@ -8,7 +8,8 @@ Hello! This is a project for my school practices. The project is built with Djan
 > If you want to start the project, you can do the following:
 
 
-Create your virtual environment:
+Create your virtual environment in the console:
+if you dont have install virtualenv, you can install the library with:
 ```python
 pip install virtualenv
 ```
